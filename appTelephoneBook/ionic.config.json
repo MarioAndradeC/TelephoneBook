@@ -1,0 +1,7 @@
+{
+  "name": "TelephoneBook",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

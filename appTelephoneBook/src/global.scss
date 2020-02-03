@@ -1,0 +1,81 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+.alert-wrapper.sc-ion-alert-md { 
+    max-width: 500px  !important;
+    width: 500px !important;
+}
+.sc-ion-select-md-h{
+    --padding-top :1px;
+    --padding-end:0;
+    --padding-bottom:1px;
+    --padding-start:16px;
+    } 
+    ion-header ion-toolbar:first-child {
+        margin:0; padding:0;
+    }
+    ion-header{
+        margin:0; padding:0;
+        --ion-background-color: #4c8dff;    
+        ion-toolbar{  // border: 2px solid red;
+            width: 100% !important;   max-width: 100%; min-width: 100%;
+            height: 100% !important;  max-height:100%; min-height:100%;
+            margin:0; padding:0;
+            ion-title{//border: 2px solid green;
+                margin:0; padding:0;
+                font-family: Roboto;
+                font-size: 20px !important;
+                font-weight: bold;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: normal;
+                letter-spacing: normal;
+                text-align: center;
+                align-content: center;             
+                color: #000000;            
+            }
+            ion-buttons{//border: 2px solid green;
+                margin:0; padding:0;
+                ion-button{//border: 2px solid blue;
+                    margin:0; padding:0;
+                    font-family: Roboto;
+                    font-size: 15px !important;
+                    color: black !important;
+                }
+                ion-menu-button{//border: 2px solid #f58220;
+                    margin:0; padding:0;
+                    color: black !important;
+                }
+                ion-icon{//border: 2px solid black;
+                    
+                    color:  black;
+                    width: 25px; height: 25px; 
+                    margin:0; padding:0;
+                }
+            }
+        }
+    }

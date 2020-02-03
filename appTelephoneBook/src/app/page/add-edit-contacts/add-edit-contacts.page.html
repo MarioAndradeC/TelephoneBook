@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="back()">
+      <ion-button>
+        {{labelCancel}}
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end" (click)="save()">
+      <ion-button>
+        {{labelOK}}
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <form >
+    <div class="divImg">
+      <img *ngIf="imagem != null" [src]="imagem">
+    </div>
+  <div class="divChangeImg" (click)='changeImg()'>{{labelChangeImage}}</div>
+    <div>
+      <ion-input [(ngModel)]="contact.name" type="text" name="name" placeholder={{labelName}} required tabindex="1">
+      </ion-input>
+      <ion-input [(ngModel)]="contact.surname" type="text" name="surname" placeholder={{labelSrname}} required
+        tabindex="2">
+      </ion-input>
+    </div>
+    <div>
+      <ion-row *ngFor="let phone of contact.phones">
+        <ion-col class="colIcon" *ngIf="phone != splicePhone" (click)='removePhone(phone)'>
+          <ion-icon class="iocnRemove" name="remove-circle"></ion-icon>
+        </ion-col>
+        <ion-col class="colPhone">{{phone.type}} </ion-col>
+        <ion-col class="colIcon" (click)='forwardPhone()'>
+          <ion-icon name="ios-arrow-forward"></ion-icon>
+        </ion-col>
+        <ion-col class="inputPhone">
+          <ion-input [(ngModel)]="phone.phone" type="tel" name="phone" placeholder="Telefone"
+            (ionChange)='onChangeTime($event,phone)'>
+          </ion-input>
+        </ion-col>
+        <ion-col class="colRemove" *ngIf="phone == splicePhone" (click)='removePhone(phone)'>
+          {{labelDelete}}
+        </ion-col>
+      </ion-row>
+      <div (click)='addPhone()'>
+        <ion-icon class="iocnAdd" name="add-circle"></ion-icon>{{labelAddPhone}}
+      </div>
+    </div>
+    <div>
+      <ion-datetime displayFormat="DD/MM/YYYY" name="birth" [(ngModel)]="contact.birth" placeholder="Nascimento"></ion-datetime>
+    </div>
+  </form>
+
+
+</ion-content>

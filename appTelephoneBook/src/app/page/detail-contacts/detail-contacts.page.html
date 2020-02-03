@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="back()">
+      <ion-button>
+        <ion-icon name="ios-arrow-back"></ion-icon>
+        {{labelContacts}}
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end" (click)="edit()">
+      <ion-button>
+        {{labelEdit}}
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form>
+    <div class="divImg">
+      <img *ngIf="imagem != null" [src]="imagem">
+    </div>
+    <div class="divNameSurname">
+      {{contacts.contact.name}} {{contacts.contact.surname}}
+    </div>
+    <div>
+      <div>
+        <ion-row class="rowContacts" *ngFor="let phone of contacts.contact.phones">
+          <ion-row class="rowType">{{phone.type}}</ion-row>
+          <ion-row class="rowPhone">{{phone.phone}}</ion-row>
+        </ion-row>
+      </div>
+    </div>
+    <div>
+      
+      <ion-datetime displayFormat="DD/MM/YYYY" name="birth" [(ngModel)]="contacts.contact.birth" disabled=true placeholder="Nascimento"></ion-datetime>  
+    </div>
+  </form>
+</ion-content>

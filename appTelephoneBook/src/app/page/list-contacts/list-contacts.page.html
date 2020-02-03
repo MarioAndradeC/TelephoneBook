@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{labelContacts}}</ion-title>
+    <ion-buttons slot="end" (click)="add()">
+      <ion-button>
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div>
+
+    <ion-searchbar [(ngModel)]="terms"></ion-searchbar>
+    <button ion-button type="button" (click)="sort()">Sort</button>
+
+
+  </div>
+  <ion-list>
+    <ion-item *ngFor="let item of result | search : terms | sort: {property: column, order: order}"
+      [ngClass]="{'item-inactive': !item.contact.active }" (click)="detail(item);">
+
+      {{ item.contact.name }} {{ item.contact.surname }}
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>
